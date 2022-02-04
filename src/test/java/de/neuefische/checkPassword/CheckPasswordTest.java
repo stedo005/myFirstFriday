@@ -8,13 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class CheckPasswordTest {
 
     @Test
-    @DisplayName("should be String 9")
+    @DisplayName("should be true")
     void test1() {
 
-        String password = "12345678a";
-        String actual = CheckPassword.validate(password);
-        assertEquals("Passwortlänge: 9\nDein Passwort enthält Zahlen!", actual);
-
+        String password = "Ab123456789";
+        boolean actual = CheckPassword.validate(password);
+        assertTrue(actual);
     }
 
 }

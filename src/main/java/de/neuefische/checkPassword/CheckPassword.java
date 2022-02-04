@@ -3,45 +3,41 @@ package de.neuefische.checkPassword;
 public class CheckPassword {
 
     public static void main(String[] args) {
-        System.out.println(validate( "asdfW"));
+        System.out.println(validate( "Ab1123456789"));
     }
 
-    public static String validate(String choosedPassword) {
 
-        String containNumers;
-        String containUpperCases;
-        String containLowerCases;
+    public static boolean validate(String choosedPassword) {
 
-        String passwordLength = "Passwortlänge: " + Integer.toString(choosedPassword.length());
+        boolean validPassword = false;
+        boolean passwordLength = false;
+
+        if(choosedPassword.length() >= 11) {
+            passwordLength = true;
+        } else {
+            System.out.println("Dein Passwort ist zu kurz!");
+        }
 
         boolean checkNumbers = choosedPassword.matches(".*[0-9].*");
-
-        if(checkNumbers) {
-            containNumers = "Dein Passwort enthält Zahlen!";
-        } else {
-            containNumers = "Dein Passwort enthält keine Zahlen!";
+        if(!checkNumbers) {
+            System.out.println("Dein Passwort muss Zahlen enthalten!");
         }
 
         boolean checkUpper = choosedPassword.matches(".*[A-Z].*");
-
-        if (checkUpper) {
-            containUpperCases = "Dein Passwort enthält Großbuchstaben!";
-        } else {
-            containUpperCases = "Dein Passwort enthält keine Großbuchstaben!";
+        if (!checkUpper) {
+            System.out.println("Dein Passwort muss Großbuchstaben enthalten!");
         }
 
         boolean checkLower = choosedPassword.matches(".*[a-z].*");
-
-        if (checkLower) {
-            containLowerCases = "Dein Passwort enthält Kleinbuchstaben!";
-        } else {
-            containLowerCases = "Dein Passwort enthält keine kleinbuchstaben!";
+        if (!checkLower) {
+            System.out.println("Dein Passwort muss Kleinbuchstaben enthalten!");
         }
 
+        if (passwordLength && checkNumbers && checkUpper && checkLower) {
+            validPassword = true;
+            System.out.println("Dein Passwort ist sicher!");
+        }
 
-        //String output = passwordLength + "\n" + containNumers + "\n" + containUpperCases + "\n" + containLowerCases;
-        String output = passwordLength + "\n" + containNumers;
-
-        return output;
+        return validPassword;
     }
 }
