@@ -7,22 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CheckPasswordTest {
 
-/*
     @Test
     @DisplayName("should be true")
     void test1() {
 
-        String password = "Ab123456789";
-        boolean actual = CheckPassword.validate(password);
-        assertTrue(actual);
-    }
- */
-
-    @Test
-    @DisplayName("should be true")
-    void test() {
-
-        String[] passwords = {"Ab123456789", "Ab123456789", "Ab123456789"};
+        String[] passwords = {"Ab123456789"};
         boolean actual = CheckPassword.validate(passwords);
         assertTrue(actual);
     }
