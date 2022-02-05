@@ -9,9 +9,10 @@ public class CheckPassword {
     }
 
 
-    public static boolean validate(String[] choosedPasswords) {
+    public static String validate(String[] choosedPasswords) {
 
         boolean validPassword = false;
+        String output ="";
 
         for (int i = 0; i < choosedPasswords.length; i++) {
 
@@ -26,14 +27,14 @@ public class CheckPassword {
 
                 if (checkNumbers && checkUpper && checkLower) {
                     validPassword = true;
-                    System.out.println("Dein Passwort ist sicher!");
+                    output = "Dein Passwort ist sicher!";
                 } else {
-                    System.out.println("Dein Passwort muss Großbuchstaben, Kleinbuchstaben und Ziffern enthalten!");
+                    output = "Dein Passwort muss Großbuchstaben, Kleinbuchstaben und Ziffern enthalten!";
                 }
             } else {
-                System.out.println("Dein Passwort ist zu kurz!");
+                output = "Dein Passwort ist zu kurz!";
             }
         }
-        return validPassword;
+        return output;
     }
 }
