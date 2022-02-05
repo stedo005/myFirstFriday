@@ -6,7 +6,7 @@ public class CheckPassword {
 
     public static void main(String[] args) {
 
-        String[] passwords = {"Ab123456789", "A123a", "AA123456789"};
+        String[] passwords = {"Ab123456789", "A123a", "AA123456789", ""};
         System.out.println(validate(passwords));
     }
 
